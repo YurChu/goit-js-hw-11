@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -24,7 +24,6 @@ form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-
   const query = input.value.trim();
   if (query === '') {
     iziToast.show({
@@ -32,14 +31,11 @@ function handleSubmit(event) {
       titleColor: '#fff',
       titleSize: '16px',
       titleLineHeight: '1.5',
-
       message: `Not valid data`,
       messageColor: '#fff',
       messageSize: '16px',
       messageLineHeight: '1.5',
-
       backgroundColor: '#ffa000',
-
       progressBar: false,
       position: 'topRight',
     });
@@ -54,27 +50,19 @@ function handleSubmit(event) {
       renderGallery(images);
     })
     .catch(() => {
-      iziToast.show(
-        getIziToastOptions(
-          'Sorry, there are no images matching your search query. Please try again!'
-        )
-      );
+      iziToast.show({
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+        color: '#ef4040',
+        messageColor: '#fff',
+        maxWidth: '360px',
+        messageSize: '16',
+        messageLineHeight: '140%',
+        position: 'topRight',
+      });
     })
     .finally(() => {
       hideLoader();
       form.reset();
     });
-}
-
-function getIziToastOptions(message) {
-  return {
-    message,
-    color: '#ef4040',
-    messageColor: '#fff',
-    maxWidth: '360px',
-    messageSize: '16',
-    messageLineHeight: '140%',
-    position: 'topRight',
-    iconColor: '#fff',
-  };
 }
