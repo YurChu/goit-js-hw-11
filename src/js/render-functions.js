@@ -23,15 +23,15 @@ export function clearGallery() {
 
 export function renderGallery(images) {
   if (images.length === 0) {
-    // iziToast.show({
-    //   message: `Sorry, there are no images matching <br/> your search query. Please try again!`,
-    //   messageColor: '#fafafa',
-    //   messageSize: '16px',
-    //   messageLineHeight: '20px',
-    //   backgroundColor: '#ef4040',
-    //   progressBar: false,
-    //   position: 'topRight',
-    // });
+    iziToast.show({
+      message: `Sorry, there are no images matching your search query. Please try again!`,
+      messageColor: '#fafafa',
+      messageSize: '16px',
+      messageLineHeight: '20px',
+      backgroundColor: '#ef4040',
+      progressBar: false,
+      position: 'topRight',
+    });
     return;
   }
   const markup = images

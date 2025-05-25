@@ -27,11 +27,7 @@ function handleSubmit(event) {
   const query = input.value.trim();
   if (query === '') {
     iziToast.show({
-      title: 'Caution',
-      titleColor: '#fff',
-      titleSize: '16px',
-      titleLineHeight: '1.5',
-      message: `Not valid data`,
+      message: `No data`,
       messageColor: '#fff',
       messageSize: '16px',
       messageLineHeight: '1.5',
@@ -39,6 +35,7 @@ function handleSubmit(event) {
       progressBar: false,
       position: 'topRight',
     });
+    form.reset();
     return;
   }
 
